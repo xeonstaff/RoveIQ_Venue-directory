@@ -3,37 +3,69 @@
 	import LocationDetails from './components/LocationDetails.svelte';
 	import AdSlideshow from './components/AdSlideshow.svelte';
 	import { onMount } from 'svelte';
-	import { locations, selectedLocation } from './stores/locationStore.js';
-  
+	import { loadAds, loadLocations } from './stores/locationStore.js';
+
 	onMount(async () => {
-	  const locationData = await fetchLocations();
-	  locations.set(locationData);
+		await loadLocations();
+		await loadAds();
 	});
-  
-	function fetchLocations() {
-	  return [
-		// Replace with actual data fetching logic
-		{ id: 1, name: 'Location 1', image: 'location1.jpg', logo: 'logo1.png', details: 'Details about Location 1' },
-		{ id: 2, name: 'Location 2', image: 'location2.jpg', logo: 'logo2.png', details: 'Details about Location 2' },
-	  ];
-	}
   </script>
-  
+
   <main style="display: flex; height: 100vh;">
-	<div style="flex: 1; overflow-y: auto;">
-	  <LocationList />
-	</div>
-	<div style="flex: 2; display: flex; flex-direction: column;">
-	  <LocationDetails />
-	</div>
-	<div style="flex: 1;">
-	  <AdSlideshow />
+	<div class="container">
+		<div class="locationlist">
+			<LocationList />
+		</div>
+		<div class="locationdetails">
+			<LocationDetails />
+		</div>
+		<div class="adslideshow">
+			<AdSlideshow />
+		</div>
 	</div>
   </main>
   
   <style>
-	main {
-	  display: flex;
-	}
+/* Default layout for desktop/tablet */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-gap: 20px;
+}
+
+.locationlist {
+	grid-area: 'locationlist';
+    min-width: 125px;
+}
+
+.locationdetails {
+	grid-area: 'locationdetails';
+    min-width: 200px;
+    border: 1px solid black;
+}
+.adslideshow {
+	grid-area: 'adslideshow';
+    min-width: 60px;
+	border: 1px solid black;
+}
+
+/* Layout adjustment for mobile */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr 2fr;
+		grid-template-rows: 1fr 2fr;
+		grid-template-areas: 
+			'locationlist adslideshow' 
+			'locationdetails locationdetails';
+    }
+
+	.locationlist {
+        max-width: 200px;
+    }
+
+    .locationdetails {
+        width: 100%;
+    }
+}
   </style>
   
