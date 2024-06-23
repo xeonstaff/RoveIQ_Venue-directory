@@ -2,15 +2,20 @@
     import { locations, selectedLocation } from '../stores/locationStore.js';
     import { onDestroy } from 'svelte';
   
-    function selectLocation(location) {
-      selectedLocation.set(location);
-    }
-    
-    let locationData = []
+    let locationData = [];
+    let unsubscribe;
 
-    const unsubscribe = locations.subscribe(value => {
-        locationData = value;
-    });
+    function selectLocation(location) {
+        selectedLocation.set(location);
+    }
+
+    $: selectedLocationValue = $selectedLocation;
+
+    $: {
+        unsubscribe = locations.subscribe(value => {
+            locationData = value;
+        });
+    }
 
     onDestroy(() => {
         unsubscribe();
@@ -18,13 +23,16 @@
 
   </script>
   
-  <aside>
+  <div>
     {#each locationData as location}
-      <div on:click={() => selectLocation(location)} class="location-item">
-        <div class="name">{location.name}</div>
+      <div on:click={() => selectLocation(location)} 
+        class="location-item {location === selectedLocationValue ? 'selectedlocation' : ''}">
+        <div class="name">
+          {location.name}
+        </div>
       </div>
     {/each}
-  </aside>
+    </div>
   
   <style>
     .location-item {
@@ -34,9 +42,14 @@
     }
   
     .location-item:hover {
+      color: black;
       background-color: rgba(0, 0, 0, 0.1);
     }
 
+    .selectedlocation{
+      color: white;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
 
 /* Layout adjustment for mobile */
 @media (max-width: 768px) {

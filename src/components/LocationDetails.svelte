@@ -1,13 +1,21 @@
 <script>
     import { selectedLocation } from '../stores/locationStore.js';
+    import 'animate.css';
 
   </script>
   
   {#if $selectedLocation}
-    <section>
-      <img src={$selectedLocation.banner_img} alt="Location Image" />
-      <h2>{$selectedLocation.name}</h2>
-      <img src={$selectedLocation.logo_img} alt="Location Logo" />
+    <section
+      class="animate__animated animate__fadeIn"
+    >
+    <img src={$selectedLocation.banner_img} alt="Location Image" />
+    <div class="name-logo">
+      <img src={$selectedLocation.logo_img} 
+      alt="Location Logo" 
+      />
+      <h2 class="name">{$selectedLocation.name}</h2>
+    </div>
+
       <p>{$selectedLocation.description}</p>
     </section> 
   {:else}
@@ -17,7 +25,17 @@
   <style>
     section {
       padding: 1rem;
-      border: 1px solid black;
+    }
+
+    .name-logo{
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+    }
+
+    .name{
+      display: flex;
+      justify-content: center;
+      padding: 5px;
     }
   
     img {

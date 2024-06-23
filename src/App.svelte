@@ -11,7 +11,11 @@
 	});
   </script>
 
-  <main style="display: flex; height: 100vh;">
+  <main>
+	<div class="header">
+		<h1>RoveIQ</h1>
+		<h3 class="subheader">Digital Kiosk and Interactive Wayfinding</h3>
+	</div>
 	<div class="container">
 		<div class="locationlist">
 			<LocationList />
@@ -27,6 +31,16 @@
   
   <style>
 /* Default layout for desktop/tablet */
+
+.header{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-height: 100px;
+	line-height: 0px;
+	padding-bottom: 5px;
+}
 .container {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
@@ -51,21 +65,29 @@
 
 /* Layout adjustment for mobile */
 @media (max-width: 768px) {
+	.subheader{
+		font-size: 10px;
+	}
     .container {
         grid-template-columns: 1fr 2fr;
-		grid-template-rows: 1fr 2fr;
+		grid-template-rows: auto;
 		grid-template-areas: 
 			'locationlist adslideshow' 
 			'locationdetails locationdetails';
     }
 
 	.locationlist {
+		height: 360px;
         max-width: 200px;
     }
 
+	.adslideshow{
+		height: 360px;
+	}
+
     .locationdetails {
+		grid-area: locationdetails;
         width: 100%;
     }
 }
   </style>
-  

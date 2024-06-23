@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "rollup -c",
+    "postbuild": "prettier --write \"src/**/*.js\"",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear"
   },
@@ -22,6 +23,7 @@
     "svelte-material-ui": "^7.0.0"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "sirv-cli": "^2.0.0"
   }
 }

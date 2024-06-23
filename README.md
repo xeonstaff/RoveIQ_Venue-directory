@@ -24,6 +24,13 @@ npm run dev
 npm run build
 ```
 
-## Pull Requests
+# Pull Requests
 
 Please submit a pull requests to add features or improve this app.
+
+## Recommended Next Features
+
+The following features will receive priority in pull request approval. 
+
+1. Maps: integrate Maps (eg Google Maps) for each location based on latitude/longitude
+2. Error Handling: incorporate better tests & error handling into API calls and component rendering
