@@ -1,4 +1,4 @@
-## Venue Directory
+# Venue Directory
 
 This app serves to demo a number of RoveIQ's digital display capabilites in the field.
 
@@ -6,29 +6,29 @@ To find out more about integrating RoveIQ's best-in-market wayfinding displays i
 
 ## To Run Project
 
-# Install the dependencies:
+### Install the dependencies:
 
 ```bash
 npm install
 ```
 
-# Run app in development mode:
+### Run app in development mode:
 
 ```bash
 npm run dev
 ```
 
-# Run app in production mode:
+### Run app in production mode:
 
 ```bash
 npm run build
 ```
 
-# Pull Requests
+## Pull Requests
 
 Please submit a pull requests to add features or improve this app.
 
-## Recommended Next Features
+### Recommended Next Features
 
 The following features will receive priority in pull request approval. 
 
