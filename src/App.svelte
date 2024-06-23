@@ -4,6 +4,7 @@
 	import AdSlideshow from './components/AdSlideshow.svelte';
 	import { onMount } from 'svelte';
 	import { loadAds, loadLocations } from './stores/locationStore.js';
+	import 'animate.css';
 
 	onMount(async () => {
 		await loadLocations();
@@ -11,7 +12,9 @@
 	});
   </script>
 
-  <main>
+  <main
+  	class="animate__animated animate__fadeInTopRight"
+  >
 	<div class="header">
 		<h1>RoveIQ</h1>
 		<h3 class="subheader">Digital Kiosk and Interactive Wayfinding</h3>
@@ -27,10 +30,30 @@
 			<AdSlideshow />
 		</div>
 	</div>
-  </main>
-  
-  <style>
-/* Default layout for desktop/tablet */
+</main>
+	
+<style>
+
+main{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+
+	/* background animation */
+    background-color: #f0f0f0; 
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.7), rgba(105, 176, 247, 0.7));
+    background-size: 400% 400%; 
+    animation: gradientMovement 8s infinite alternate;
+}
+
+@keyframes gradientMovement {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
 
 .header{
 	display: flex;
@@ -39,7 +62,8 @@
 	align-items: center;
 	max-height: 100px;
 	line-height: 0px;
-	padding-bottom: 5px;
+	padding: 5px 0px;
+	background-color: rgba(0, 0, 0, 0.1);
 }
 .container {
     display: grid;
@@ -56,14 +80,16 @@
 	grid-area: 'locationdetails';
     min-width: 200px;
     border: 1px solid black;
+	border-radius: 5px;
 }
 .adslideshow {
 	grid-area: 'adslideshow';
     min-width: 60px;
 	border: 1px solid black;
+	border-radius: 5px;
 }
 
-/* Layout adjustment for mobile */
+/* Mobile Styling */
 @media (max-width: 768px) {
 	.subheader{
 		font-size: 10px;
@@ -89,5 +115,6 @@
 		grid-area: locationdetails;
         width: 100%;
     }
+
 }
   </style>

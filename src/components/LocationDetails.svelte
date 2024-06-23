@@ -8,7 +8,7 @@
     <section
       class="animate__animated animate__fadeIn"
     >
-    <img src={$selectedLocation.banner_img} alt="Location Image" />
+    <img src={$selectedLocation.banner_img} alt="Location Image"/>
     <div class="name-logo">
       <img src={$selectedLocation.logo_img} 
       alt="Location Logo" 
@@ -19,7 +19,7 @@
       <p>{$selectedLocation.description}</p>
     </section> 
   {:else}
-    <p>Select a location to view details.</p>
+    <p class="text">Select a location to view details.</p>
   {/if}
   
   <style>
@@ -45,5 +45,9 @@
     h2 {
       margin-top: 0.5rem;
     }
-  </style>
-  
+
+    .text{
+      padding: 10px;
+    }
+
+</style>

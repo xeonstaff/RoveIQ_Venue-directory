@@ -22,9 +22,10 @@
   onMount(() => {
     const interval = setInterval(() => {
       currentAdIndex.update(n => (n + 1) % adData.length);
-    }, 10000); // Adjust interval as needed
+    }, 10000); 
     return () => clearInterval(interval);
   });
+  
 </script>
 
 <div class="slideshow">

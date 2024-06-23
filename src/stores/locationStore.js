@@ -19,6 +19,6 @@ export async function loadAds() {
     const adData = await fetchData();
     ads.set(adData.data.schedules);
   } catch (error) {
-    console.error('Error fetching locations:', error);
+    console.error('Error fetching ads:', error);
   }
 }

@@ -51,11 +51,11 @@
       background-color: rgba(0, 0, 0, 0.7);
     }
 
-/* Layout adjustment for mobile */
-@media (max-width: 768px) {
-    .name {
-        font-size: 12px;
+    /* Mobile Styling */
+    @media (max-width: 768px) {
+        .name {
+            font-size: 12px;
+        }
     }
-}
   </style>
   

@@ -34,3 +34,5 @@ The following features will receive priority in pull request approval.
 
 1. Maps: integrate Maps (eg Google Maps) for each location based on latitude/longitude
 2. Error Handling: incorporate better tests & error handling into API calls and component rendering
+3. Design: design should be significantly improved, including colors, transitions, and fonts. A Svelte component library should be considered to optimize & stylize components.
+4. Touch features: as RoveIQ specializes in touchscreen wayfinding software, touch features should be integrated into this demo. 
